@@ -9,7 +9,6 @@ var INTERVAL_TIME = 25;
 
 var board = new Board();
 
-
 $('#start').on('click', function(){
   board.start();
   //activatePaddle2();
@@ -56,7 +55,7 @@ function updateState(){
   if (board.gameOver()) board.stop();
 
   //render all
-  //paddle1, paddle2, ball, score   --- Maybe we shouldn't render paddle1 twice...
+  //paddle1, paddle2, ball, score
   renderGame();
 
 }
@@ -84,7 +83,7 @@ $(document).on('keydown', function(e){
   }
 
   //render paddle
-  $('#paddle1').css('top', paddle1.yPos);
+  //$('#paddle1').css('top', paddle1.yPos);
 });
 
 //
@@ -104,7 +103,7 @@ function activatePaddle2(x, y) {
 
 function renderGame(){
   renderScore();
-  renderPaddle();
+  renderPaddles();
   renderBall();
 }
 
@@ -123,8 +122,12 @@ function renderBall(){
   ballDiv.css('top', board.ball.yPos + 'px');
 }
 
-//paint paddle2
-function renderPaddle(){
+//paint paddles
+function renderPaddles(){
+  var paddle1Div = $('#paddle1');
+  paddle1Div.css('left', board.paddle1.xPos + 'px');
+  paddle1Div.css('top', board.paddle1.yPos + 'px');
+
   var paddle2Div = $('#paddle2');
   paddle2Div.css('left', board.paddle2.xPos + 'px');
   paddle2Div.css('top', board.paddle2.yPos + 'px');
