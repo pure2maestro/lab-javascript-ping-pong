@@ -13,19 +13,19 @@ Ball.prototype.randomDirection = function() {
 
     var c = 14;       //ball speed, pretty much. pixels moved per intervalTime
     var negOrPos = Math.random() >= 0.5 ? 1 : -1;
-    // should return number between -2 and 2, inclusive
-    this.xChange = Math.round( Math.random() * c) * negOrPos;
+    // setting yChange to not allow such a big angle
+    this.yChange = Math.round( Math.random() * c/1.5) * negOrPos;
     negOrPos = Math.random() >= 0.5 ? 1 : -1;
     // should return number based on hypotenuse.
-    this.yChange = Math.round( Math.sqrt((Math.pow(c, 2) - Math.pow(this.xChange, 2)) ) * negOrPos);
+    this.xChange = Math.round( Math.sqrt((Math.pow(c, 2) - Math.pow(this.yChange, 2)) ) * negOrPos);
 
     while (this.xChange === 0 || this.yChange === 0){
       negOrPos = Math.random() >= 0.5 ? 1 : -1;
       // should return number between -2 and 2, inclusive
-      this.xChange = Math.round( Math.random() * c) * negOrPos;
+      this.yChange = Math.round( Math.random() * c) * negOrPos;
       negOrPos = Math.random() >= 0.5 ? 1 : -1;
       // should return number based on hypotenuse.
-      this.yChange = Math.round( Math.sqrt((Math.pow(c, 2) - Math.pow(this.xChange, 2)) ) * negOrPos);
+      this.xChange = Math.round( Math.sqrt((Math.pow(c, 2) - Math.pow(this.yChange, 2)) ) * negOrPos);
     }
 
     //console.log("xchange" + this.xChange);
