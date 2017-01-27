@@ -11,7 +11,7 @@ function Ball(x, y, paddle1, paddle2) {
 //must obviously go in opposite direction of hit, choose random x, gives our y.
 Ball.prototype.randomDirection = function() {
 
-    var c = 14;       //ball speed, pretty much. pixels moved per intervalTime
+    var c = 20;       //ball speed, pretty much. pixels moved per intervalTime
     var negOrPos = Math.random() >= 0.5 ? 1 : -1;
     // setting yChange to not allow such a big angle
     this.yChange = Math.round( Math.random() * c/1.5) * negOrPos;

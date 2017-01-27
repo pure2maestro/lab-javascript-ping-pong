@@ -8,12 +8,13 @@ var BALL_DIAMETER = 20; // ''
 var INTERVAL_TIME = 25;
 
 var board = new Board();
+var game = null;
 
 $('#start').on('click', function(){
   board.start();
   //activatePaddle2();
   //what is intervalTime?
-  var game = setInterval(updateState, 50);
+  game = setInterval(updateState, 50);
   renderGame();
 });
 
@@ -52,7 +53,7 @@ function updateState(){
   }
 
   // check if game is over?           //render score before this?
-  if (board.gameOver()) board.stop();
+  if (board.gameOver()) board.stop(game);
 
   //render all
   //paddle1, paddle2, ball, score

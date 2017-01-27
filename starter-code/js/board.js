@@ -19,8 +19,10 @@ Board.prototype.checkGame = function(){
 Board.prototype.stop = function(game){
   //probably should render atleast the score here as I'm not rendering anything
   //after we find game is over.
+
+  alert("game is stopped");   // this is not being called.
   clearInterval(game);
-  alert("game is stopped");
+
 };
 
 //places people!
